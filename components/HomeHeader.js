@@ -1,8 +1,11 @@
-import { View, Text, Image, TextInput } from 'react-native'
-import { SIZES, FONTS, COLORS, assets } from '../constants'
+import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native'
+import { SIZES, COLORS, assets } from '../constants'
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 
-const HomeHeader = ({ onSearch }) => {
+const HomeHeader = ({ onSearch, favorites }) => {
+
+    const navigation = useNavigation();
     return (
         <View style={{
             backgroundColor: COLORS.primary,
@@ -32,13 +35,16 @@ const HomeHeader = ({ onSearch }) => {
                 </View>
             </View>
             <View style={{ marginVertical: SIZES.font }}>
-                <Text style={{ fontFamily: FONTS.regular, fontSize: SIZES.small, color: COLORS.white }}>
+                <Text style={{ fontSize: SIZES.small, color: COLORS.white }}>
                     Hello Sarith 👋
                 </Text>
-                <Text style={{ fontFamily: FONTS.bold, fontSize: SIZES.large, color: COLORS.white, marginTop: SIZES.base / 2 }}>
+                <Text style={{ fontSize: SIZES.large, color: COLORS.white, marginTop: SIZES.base / 2 }}>
                     Let's find a masterpiece 🔥
                 </Text>
             </View>
+            <TouchableOpacity onPress={() => navigation.navigate("Favorites", { favorites })}>
+                <Text style={{ color: 'red' }}>Favorites</Text>
+            </TouchableOpacity>
             <View style={{ marginTop: SIZES.font }}>
                 <View style={{
                     width: '100%',

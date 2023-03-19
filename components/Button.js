@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
-import { COLORS, FONTS, SHADOWS, SIZES } from '../constants'
+import { COLORS, SHADOWS, SIZES } from '../constants'
 
 export const CircleButton = ({ imgUrl, handlePress, ...props }) => {
     return (
@@ -41,7 +41,6 @@ export const TestButton = ({ minWidth, fontSize, handlePress, ...props }) => {
             onPress={handlePress}
         >
             <Text style={{
-                fontFamily: FONTS.semiBold,
                 fontWeight: 'bold',
                 fontSize: fontSize,
                 color: COLORS.white,

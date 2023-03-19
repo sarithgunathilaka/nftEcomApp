@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
-import { Text, View, SafeAreaView, FlatList } from 'react-native'
+import React, { useState, useContext, useEffect } from 'react'
+import { View, SafeAreaView, FlatList } from 'react-native'
 import { FocusedStatusBar, HomeHeader, NFTCard } from '../components/index'
 
 import { COLORS, NFTData } from '../constants';
+import { MiscContext } from '../context/miscContex';
 
-function Home() {
+function Favorites() {
+    const { favorites, setFavorites } = useContext(MiscContext);
     const [searchString, setSearchString] = useState('');
-    const [favorites, setFavorites] = useState([]);
 
-    console.log('favorites', favorites);
+    const [favNFTData, setFavNFTData] = useState([]);
+
+    useEffect(() => {
+        favorites.map((fav) => {
+            setFavNFTData(favNFTs => [...favNFTs, NFTData.filter((NFT) => NFT.id === fav)[0]])
+        })
+    }, [])
 
     const renderData = () => {
         return searchString === '' ? NFTData : NFTData.filter((nft) => nft.name.toLowerCase().includes(searchString.toLowerCase()));
@@ -21,7 +28,7 @@ function Home() {
             <View style={{ flex: 1 }}>
                 <View style={{ zIndex: 0 }}>
                     <FlatList
-                        data={renderData()}
+                        data={favNFTData}
                         renderItem={({ item }) => <NFTCard item={item} />}
                         keyExtractor={(item) => item.id}
                         showsVerticalScrollIndicator={false}
@@ -45,4 +52,4 @@ function Home() {
     )
 }
 
-export default Home
+export default Favorites

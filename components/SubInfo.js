@@ -1,12 +1,12 @@
 import { View, Text, Image } from 'react-native'
 import React from 'react'
-import { SIZES, FONTS, COLORS, assets, SHADOWS } from '../constants'
+import { SIZES, COLORS, assets, SHADOWS } from '../constants'
 
 export const NFTTitle = ({ title, subTitle, titleSize, subTitleSIze }) => {
     return (
         <View>
-            <Text style={{ fontFamily: FONTS.semiBold, fontSize: titleSize, color: COLORS.primary }}>{title}</Text>
-            <Text style={{ fontFamily: FONTS.regular, fontSize: subTitleSIze, color: COLORS.primary }}>{subTitle}</Text>
+            <Text style={{ fontSize: titleSize, color: COLORS.primary }}>{title}</Text>
+            <Text style={{ fontSize: subTitleSIze, color: COLORS.primary }}>{subTitle}</Text>
         </View>
     )
 }
@@ -20,7 +20,6 @@ export const EthPrice = ({ price }) => {
                 style={{ width: 20, height: 20, marginRight: 2 }}
             />
             <Text style={{
-                fontFamily: FONTS.medium,
                 fontSIze: SIZES.font,
                 color: COLORS.primary
             }}>{price}</Text>
@@ -62,14 +61,12 @@ export const EndDate = () => {
                 maxWidth: "50%",
             }}>
             <Text style={{
-                fontFamily: FONTS.regular,
                 fontSize: SIZES.small,
                 color: COLORS.primary
             }}>
                 Ending in
             </Text>
             <Text style={{
-                fontFamily: FONTS.semiBold,
                 fontSize: SIZES.medium,
                 color: COLORS.primary,
                 fontWeight: 'bold',

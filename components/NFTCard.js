@@ -1,11 +1,19 @@
+import { useContext } from 'react'
 import { View, Image, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 import { COLORS, SIZES, SHADOWS, assets } from '../constants'
 import { CircleButton, TestButton } from './Button'
 import { SubInfo, EthPrice, NFTTitle } from '../components/SubInfo'
+import { MiscContext } from '../context/miscContex'
 
 const NFTCard = ({ item }) => {
+    const { favorites, setFavorites } = useContext(MiscContext);
+    const handleFav = () => {
+        if (!favorites.includes(item.id)) {
+            setFavorites((favs) => [...favs, item.id]);
+        }
+    }
     const navigation = useNavigation();
     return (
         <View style={{
@@ -26,7 +34,7 @@ const NFTCard = ({ item }) => {
                         borderTopRightRadius: SIZES.font,
                     }}
                 />
-                <CircleButton imgUrl={assets.heart} right={10} top={10} />
+                <CircleButton imgUrl={assets.heart} right={10} top={10} handlePress={handleFav} />
             </View>
             <SubInfo />
             <View style={{ width: "100%", padding: SIZES.font }} >
