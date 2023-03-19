@@ -71,7 +71,8 @@ export const EndDate = () => {
             <Text style={{
                 fontFamily: FONTS.semiBold,
                 fontSize: SIZES.medium,
-                color: COLORS.primary
+                color: COLORS.primary,
+                fontWeight: 'bold',
             }}>
                 12h 30m
             </Text>

@@ -40,11 +40,12 @@ export const TestButton = ({ minWidth, fontSize, handlePress, ...props }) => {
             }}
             onPress={handlePress}
         >
-            <Text styles={{
+            <Text style={{
                 fontFamily: FONTS.semiBold,
+                fontWeight: 'bold',
                 fontSize: fontSize,
                 color: COLORS.white,
-                textAlign: 'center'
+                textAlign: 'center',
             }}>Place a bid</Text>
 
         </TouchableOpacity>
